@@ -9,10 +9,10 @@ const Hero = () => {
         <ContainerScroll
           titleComponent={
             <>
-              <h1 className="text-4xl font-semibold text-black dark:text-white">
-                Manage your Money with AI-Driven Personal <br />
-                <span className="text-4xl md:text-[6rem] text-primary font-bold mt-1 leading-none">
-                  Finance Advisor
+              <h1 className="text-4xl font-semibold mb-8 text-black dark:text-white">
+                Manage Your Finances Smarter with AI-Powered Insights <br />
+                <span className="text-2xl md:text-[4rem] mb-2 text-primary font-bold mt-1 leading-none">
+                  Guiding Your Financial Journey
                 </span>
               </h1>
             </>

@@ -6,22 +6,20 @@ import Hero from "./_components/hero";
 import LoaderSpinner from "./_components/loaderspinner";
 
 export default function Home() {
-  // State untuk menentukan apakah konten telah dimuat
   const [loading, setLoading] = useState(true);
 
-  // Gunakan useEffect untuk mengatur loading selama 2 detik
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false); // Setelah 2 detik, set loading ke false
-    }, 2000); // 2000ms = 2 detik
+      setLoading(false);
+    }, 2000);
 
-    return () => clearTimeout(timer); // Bersihkan timer jika komponen dibongkar
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="overflow-x-hidden min-h-screen">
+    <div className=" min-h-screen bg-gray-50">
       {loading ? (
-        <LoaderSpinner /> // Tampilkan spinner selama loading
+        <LoaderSpinner />
       ) : (
         <>
           <Header />

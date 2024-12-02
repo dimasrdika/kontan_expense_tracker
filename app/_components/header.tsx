@@ -10,22 +10,37 @@ function Header() {
   const { user, isSignedIn } = useUser();
 
   return (
-    <div className="p-5 flex bg-primary justify-between items-center border shadow-sm">
+    <div className="p-4 flex bg-primary justify-between items-center border shadow-sm w-full">
       <div className="flex flex-row items-center">
-        <Image src="/logo.svg" alt="logo" width={50} height={50} />
-        <span className="text-xl font-semibold font-sans">KONTAN</span>
+        <Image
+          src="/logo.svg"
+          alt="logo"
+          width={40}
+          height={40}
+          className="w-8 h-8 md:w-10 md:h-10"
+        />
+        <span className="text-base md:text-xl font-semibold font-sans ml-2 md:ml-3">
+          KONTAN
+        </span>
       </div>
+
       {isSignedIn ? (
         <UserButton />
       ) : (
-        <div className="flex gap-3  items-center">
-          <Link href={"/dashboard"}>
-            <Button variant="outline" className="rounded-full">
+        <div className="flex gap-2 items-center">
+          <Link href="/dashboard" className="block">
+            <Button
+              variant="outline"
+              className="rounded-full text-xs md:text-sm"
+            >
               Dashboard
             </Button>
           </Link>
-          <Link href={"/sign-in"}>
-            <Button className="rounded-full">Get Started</Button>
+
+          <Link href="/sign-in">
+            <Button className="rounded-full text-xs md:text-sm">
+              Get Started
+            </Button>
           </Link>
         </div>
       )}
