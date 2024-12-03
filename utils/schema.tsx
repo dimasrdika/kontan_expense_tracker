@@ -13,7 +13,7 @@ export const budget = pgTable("budget", {
   name: varchar("name", { length: 255 }).notNull(),
   amount: numeric("amount", { precision: 10, scale: 2 }).notNull(),
   icon: varchar("icon"),
-  cretedBy: varchar("createdBy", { length: 255 }).notNull(),
+  createdBy: varchar("createdBy", { length: 255 }).notNull(),
 });
 
 // income schema
@@ -23,7 +23,7 @@ export const income = pgTable("income", {
   name: varchar("name", { length: 255 }).notNull(),
   amount: numeric("amount", { precision: 10, scale: 2 }).notNull(),
   icon: varchar("icon"),
-  cretedBy: varchar("createdBy", { length: 255 }).notNull(),
+  createdBy: varchar("createdBy", { length: 255 }).notNull(),
 });
 
 // expense schema
@@ -32,5 +32,5 @@ export const expense = pgTable("expense", {
   name: varchar("name", { length: 255 }).notNull(),
   amount: numeric("amount", { precision: 10, scale: 2 }).notNull(),
   budgetId: integer("budgetId").references(() => budget.id),
-  cretedBy: varchar("createdBy", { length: 255 }).notNull(),
+  createdAt: varchar("createdAt").notNull(),
 });

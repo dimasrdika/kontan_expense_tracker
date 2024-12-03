@@ -31,7 +31,7 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
       const result = await db
         .select()
         .from(budget)
-        .where(eq(budget.cretedBy, email)); // Corrected 'cretedBy' to 'createdBy'
+        .where(eq(budget.createdBy, email)); // Corrected 'cretedBy' to 'createdBy'
 
       if (result.length === 0) {
         router.push("/dashboard");
@@ -54,7 +54,7 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div>
-      <div className="fixed md:w-64 md:block">
+      <div className="relative">
         <SideNav />
       </div>
       <div className="md:ml-64">

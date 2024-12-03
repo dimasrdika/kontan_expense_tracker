@@ -1,6 +1,16 @@
-const getFinancialAdvices = () => {
-  // your logic here
-  return "Financial advice!";
+// getFinancialAdvice.ts
+const getFinancialAdvice = async ({
+  budget,
+  income,
+  spend,
+}: {
+  budget: number;
+  income: number;
+  spend: number;
+}) => {
+  // Implementasi logika nasihat keuangan berdasarkan budget, income, dan spend
+  // Kembalikan advice dalam bentuk string
+  return "Financial advice based on your data.";
 };
 
-export default getFinancialAdvices;
+export default getFinancialAdvice;
