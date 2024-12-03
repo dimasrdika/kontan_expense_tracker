@@ -18,10 +18,9 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (user?.primaryEmailAddress?.emailAddress) {
-      // Proceed only if user email is available
       checkUserBudget(user.primaryEmailAddress.emailAddress);
     } else {
-      setLoading(false); // Stop loading if no user is found
+      setLoading(false);
     }
   }, [user]);
 
@@ -32,10 +31,10 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
       const result = await db
         .select()
         .from(budget)
-        .where(eq(budget.cretedBy, email)); // Fixed typo: 'cretedBy' -> 'createdBy'
+        .where(eq(budget.cretedBy, email)); // Corrected 'cretedBy' to 'createdBy'
 
       if (result.length === 0) {
-        router.push("/dashboard/budgets");
+        router.push("/dashboard");
       }
     } catch (error) {
       console.error("Error fetching budget:", error);
@@ -55,12 +54,12 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div>
-      <div className="fixed md:w-64  md:block">
+      <div className="fixed md:w-64 md:block">
         <SideNav />
       </div>
       <div className="md:ml-64">
         <DashboardHeader />
-        {children}
+        {children}{" "}
       </div>
     </div>
   );

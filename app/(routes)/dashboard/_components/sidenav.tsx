@@ -56,8 +56,8 @@ function SideNav() {
           {menuList.map((menu) => (
             <Link href={menu.href} key={menu.id}>
               <h2
-                className={`flex gap-2 items-center text-gray-500 font-medium p-4 cursor-pointer rounded-full transition-all duration-300 hover:text-gray-600 hover:bg-yellow-200 ${
-                  path === menu.href ? "text-primary bg-yellow-200" : ""
+                className={`flex gap-2 items-center text-gray-500 font-medium my-4 p-4 cursor-pointer rounded-full transition-all duration-300 hover:text-gray-600 hover:bg-yellow-200 ${
+                  path === menu.href ? "text-black bg-yellow-200" : ""
                 }`}
               >
                 {menu.icon}

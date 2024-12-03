@@ -5,9 +5,19 @@ import Image from "next/image";
 import { useUser, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 function Header() {
   const { user, isSignedIn } = useUser();
+  const router = useRouter();
+
+  const handleDashboardClick = () => {
+    if (!isSignedIn) {
+      router.push("/sign-in?redirectUrl=/dashboard");
+    } else {
+      router.push("/dashboard");
+    }
+  };
 
   return (
     <div className="p-4 flex bg-primary justify-between items-center border shadow-sm w-full">
@@ -28,14 +38,13 @@ function Header() {
         <UserButton />
       ) : (
         <div className="flex gap-2 items-center">
-          <Link href="/dashboard" className="block">
-            <Button
-              variant="outline"
-              className="rounded-full text-xs md:text-sm"
-            >
-              Dashboard
-            </Button>
-          </Link>
+          <Button
+            variant="outline"
+            className="rounded-full text-xs md:text-sm"
+            onClick={handleDashboardClick} // Memanggil fungsi ketika klik tombol
+          >
+            Dashboard
+          </Button>
 
           <Link href="/sign-in">
             <Button className="rounded-full text-xs md:text-sm">
